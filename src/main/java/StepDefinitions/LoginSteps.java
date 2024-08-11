@@ -10,7 +10,7 @@ import pages.LoginPage;
 
 public class LoginSteps {
 
-    public WebDriver driver;
+    private WebDriver driver;
     private LoginPage loginPage;
     private DashboardPage dashboardPage;
 
@@ -37,7 +37,7 @@ public class LoginSteps {
 
     @Then("browser closes")
     public void browser_closes() {
-        driver.quit();
+       DriverUtil.quitDriver();
     }
 
     @Then("user can't view the dashboard page")
