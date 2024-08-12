@@ -10,9 +10,9 @@ import pages.SearchPage;
 
 public class SearchSteps {
 
-    private DashboardPage dashboardPage;
-    private WebDriver driver;
-    private SearchPage searchPage;
+    private final DashboardPage dashboardPage;
+    private final WebDriver driver;
+    private final SearchPage searchPage;
 
     public SearchSteps() {
         driver = DriverUtil.getDriver();
@@ -38,6 +38,21 @@ public class SearchSteps {
     @Then("user should see the Admin user's details in the search results")
     public void userShouldSeeTheUserSDetailsInTheSearchResults() {
         searchPage.assertSearchResults();
+    }
+
+    @Then("user should see {string} in the search results")
+    public void userShouldSeeInTheSearchResults(String toasterText) {
+        searchPage.assertToaster(toasterText);
+    }
+
+    @Then("user leaves the {string} field empty")
+    public void userLeavesTheFieldEmpty(String arg0) {
+        searchPage.search();
+    }
+
+    @Then("user should see a list of all users")
+    public void userShouldSeeAListOfAllUsers() {
+        searchPage.assertUserTable();
     }
 
 }
